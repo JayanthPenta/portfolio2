@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Music Recommender</title>
+  <link rel="stylesheet" href="music.css" />
+</head>
+<body>
+  <body>
+  <div class="app">
+    <h1>🎶 How Are You Feeling Today?</h1>
+
+    <!-- Name Input -->
+    <input type="text" id="nameInput" placeholder="Enter your name..." />
+    <button id="startBtn">Start</button>
+
+    <!-- Main content hidden by default -->
+    <div id="mainContent" style="display: none;">
+      <div class="mood-buttons">
+        <button class="mood" data-mood="happy">😊 Happy</button>
+        <button class="mood" data-mood="sad">😢 Sad</button>
+        <button class="mood" data-mood="chill">😎 Chill</button>
+        <button class="mood" data-mood="angry">😠 Angry</button>
+      </div>
+      <div class="output">
+        <h2 id="quote">Your vibe will show up here!</h2>
+        <iframe id="musicPlayer" width="360" height="215" frameborder="0"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="personal">
+        <h3 id="moodScore">🧠 Calculating your mood vibe...</h3>
+      </div>
+    </div>
+  </div>
+
+  <div id="emojiRain"></div>
+
+  <footer class="footer">
+    <p>Made with ❤️ by <strong>JAYANTH</strong></p>
+    <a href="https://jayanths-portfolio2-dev.netlify.app/" target="_blank">Portfolio</a> |
+    <a href="https://github.com/JayanthPenta" target="_blank">GitHub</a>
+  </footer>
+
+  <script src="music.js"></script>
+</body>
+
+
+  
+</html>

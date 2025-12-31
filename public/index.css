@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    padding: 10px;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: black;
+}
+.h2{
+    font-weight: bolder;
+    color: teal;
+    transform : translateX(20px);
+}
+.logo{
+    border: 2px solid black;
+    background-color: black;
+    display: inline;
+    position: sticky;
+    top: 5px;
+    text-shadow: 0 0 5px teal;
+    text-align: center;
+    padding-top:30px;
+    font-weight: bold;
+    font-size: 70px;
+    z-index: 1;
+}
+.logo span{
+    color: teal;
+}
+.links{
+    text-align: right;
+  display: flex;
+  color : white;
+    
+    
+    
+}
+ .link a{
+     text-shadow: 0 10px 50px teal;
+     position: sticky;
+     margin: 10px;
+     padding: 20px;
+     font-size: 50px;
+     color: white;
+     text-decoration: none;
+     border: 1px solid transparent;
+     
+}
+.link:hover{
+    transition: 500ms;
+    transform:translateY(-25px);
+    background-color: teal;
+    border-radius: 20px;
+    scale: 1.1;
+    color: teal;
+    background-color: teal;
+    font-weight: 700;
+    box-shadow: 0 0 40px teal;
+}
+.main-container{
+    position:relative;
+    top:40px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .image{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 15px teal;
+}
+
+.main-container .image img{
+    width: 100%;
+}
+
+.main-container .image:hover{
+    animation: animate 1.5s ease-in-out infinite;
+}
+
+.content button{
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin: 50px;
+    background-color: teal;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 270%;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: 0.2s linear;
+}
+
+.content button:hover{
+    scale: 1.1;
+    color: teal;
+    border: 2px solid teal;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px teal;
+}
+@keyframes animate {
+    0%{scale: 1;}
+    50%{scale: 1.05;}
+    100%{scale: 1;}
+}
+.content{
+    position:relative;
+    top:50px;
+}
+.main-container .content{
+    color: white;
+    width: 40%;
+    min-height: 100px;
+}
+.content #head{
+    font-size: clamp(2rem, 2rem + 5vw, 2.5rem);
+}
+
+.content #head span{
+    color: teal;
+    text-shadow: 0  0 10px teal;
+}
+
+.content .typewriter{
+    font-size: clamp(2rem, 2rem + 5vw, 2.5rem);
+    font-weight: 600;
+}
+
+.content .typewriter-text{
+    color: teal;
+    text-shadow: 0 0 10px teal;
+     border: 1px solid transparent;
+    padding-bottom: 30px;
+}
+/* about me*/
+#section1{
+    overflow: hidden;
+    text-align: justify-all;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 50px;
+    width: 100%;
+}
+.h1{
+    font-size: 50px;
+    font-weight : bold;
+    color : teal;
+    border:1px solid transparent;
+    text-align : center;
+    text-shadow : 0 0 100px teal;
+  }
+#hr1{
+    text-align: center;
+}
+  .para{
+    text-shadow : 0 0 8px teal;
+    text-indent:50px;
+    padding : 25px;
+    color : white;
+    border:1px solid transparent;
+    font-size: 30px;
+   
+    margin: 50px;
+  }
+  .span1{
+    padding : 3px;
+    color : white;
+    border:1px solid transparent;
+    background-color:teal;
+    border-radius:10px;
+    text-align : center;
+  }
+ 
+   
+  div{
+    display : grid;
+    text-align:center;
+  }
+  
+  hr{
+    color : white;
+  }
+
+/*projects*/
+
+#section2{
+    overflow: hidden;
+    position: relative;
+    top: 80px;
+    width: 100%;
+}
+#pro{
+    font-size: 50px;
+      text-align:center;
+      color:teal;
+    text-shadow : 0 0 100px teal;
+    }
+#hr2{
+    text-align: center;
+}
+  div{
+    color:white;
+   justify-content : center;
+  }  
+   .d{
+    left:40px;
+    /*border :2px solid transparent;*/
+    height: 400px;
+     width: 400px;
+    box-shadow : 1px 1px 5px 1px teal;
+    padding-bottom : 30px;
+    margin-bottom : 30px;
+    border-radius : 50%;
+   }
+ .d1{
+     font-size: 50px;
+  margin : 50px;
+  padding : 50px;
+  text-align:center;
+  background : url(clock/clock.jpg) no-repeat;
+  background-size: 100%;
+ }
+ .d2{
+     font-size: 50px;
+  margin : 50px;
+  padding : 50px;
+  text-align:center;
+  background : url(calculator/calc.jpg) no-repeat;
+  background-size:100%;
+ 
+ }
+ .d3{
+  font-size: 50px;
+  margin : 50px;
+  padding : 50px;
+  text-align:center;
+  background : url(stopwatch/stopwatch.jpg) no-repeat;
+  background-size:100%;
+ 
+ }
+ .d4{
+  font-size: 50px;
+  margin : 50px;
+  padding : 50px;
+  text-align:center;
+  background : url(musically/music.png) no-repeat;
+  background-size:100%;
+ 
+ }
+ .d5{
+  font-size: 50px;
+  margin : 50px;
+  padding : 50px;
+  text-align:center;
+  background : url(assets/logo.jpeg) no-repeat;
+  background-size:cover;
+ }
+ .d6{
+  font-size: 50px;
+  margin : 50px;
+  padding : 50px;
+  text-align:center;
+  background : url(assets/flipmart.jpg) no-repeat;
+  background-size:100%;
+ }
+ .d:hover{
+  transform : scale(1.2);
+  transition : 1s;
+ }
+ a{
+  text-decoration : none;
+  color : teal;
+ }
+#main{
+ display : grid;
+ padding : 50px;
+}
+
+/*contact*/
+#section3{
+    overflow: hidden;
+    position: relative;
+    top: 100px;
+    width: 100%;
+}
+#name{
+    text-align: center;
+    font-size: 50px;
+    color : teal; 
+    text-shadow : 0 0 100px teal;
+  }
+#hr3{
+    text-align: center;
+}
+.lin{
+    display: inline;
+}
+
+     i{
+       color : white;
+       text-align : center;
+       font-weight : bold;
+       font-size : 20px;
+     }
+  i a{
+    text-decoration:none;
+    color : white;
+  }
+  .phn{
+    color : teal;
+    font-size: 50px;
+    font-weight: bolder;
+  }
+.mail{
+    font-size: 50px;
+    font-weight: bolder;
+    color: teal;
+}
+.linkdin{
+    color: teal;
+    font-size: 50px;
+    font-weight: bolder;
+}
+  #div1{
+    padding : 10px;
+    margin : 3px;
+      border : 2px solid transparent;
+   }
+
+/*footer*/
+footer{
+    overflow: hidden;
+    position: relative;
+    top:120px;
+}
+
+.social-links i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 8rem;
+    background-color: transparent;
+    border: 0.2rem solid teal;
+    border-radius: 50%;
+    color: teal;
+    margin: 5px 15px;
+    font-size:100px;
+    transition: 0.2s linear;
+}
+
+.social-links i:hover{
+    scale: 1.3;
+    color: black;
+    background-color: teal;
+    filter: drop-shadow(0 0 10px teal);
+}
+
+@media (max-width:884px) {
+    nav .logo{
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+
+    .main-container {
+        
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav-container .links{
+        display: none;
+    }
+
+    .hamburg,
+    .cancel{
+        display: block;
+    }
+
+    .main-container .content{
+        width: 80%;
+    }
+.social-links i{
+        display: flex;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    .main-container .image{
+        z-index: -1;
+        width: 50%;
+        height: 60%;
+    }
+}
+
