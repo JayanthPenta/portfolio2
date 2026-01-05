@@ -57,7 +57,7 @@ export default function Skills() {
               hover:bg-teal-500
               dark:hover:bg-teal-500
               transition-all duration-300 ease-out
-            hover:-translate-y-2
+              hover:-translate-y-2
             "
           >
             <Icon
