@@ -31,7 +31,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center
+      data-aos="fade-up"
+      className="mt-[73px] min-h-screen flex items-center justify-center
       bg-gray-100 dark:bg-gray-900
       text-gray-900 dark:text-white px-6"
     >
@@ -41,7 +42,7 @@ export default function Hero() {
         <img
           src="assets/jay.jpg"
           alt="Jayanth"
-          className="w-80 h-80 rounded-full border-4 border-teal-400 object-cover shadow-lg"
+          className="w-80 h-80 rounded-full border-4 border-teal-400 object-cover shadow-lg transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(20,184,166,0.6)] active:scale-[0.99]"
         />
 
         {/* Text */}
@@ -63,7 +64,7 @@ export default function Hero() {
     px-12 py-4
     rounded-xl
     bg-teal-500
-    text-white font-semibold text-lg
+    text-black font-semibold text-lg
     border-2 border-teal-500
 
     transition-all duration-300

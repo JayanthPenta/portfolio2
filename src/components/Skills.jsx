@@ -32,6 +32,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
+       data-aos="fade-up" 
       className="py-20 bg-gray-100 dark:bg-gray-900"
     >
       <h2 className="text-3xl font-bold text-center mb-12 text-teal-500">

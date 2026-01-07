@@ -1,148 +1,39 @@
-// import { Link, useParams } from "react-router-dom";
-
-// const projects = [
-//   {
-//     name: "Clock",
-//     slug: "clock",
-//     image: "/clock/clock.jpg",
-//     url: "/clock/clock.html",
-//   },
-//   {
-//     name: "Calculator",
-//     slug: "calculator",
-//     image: "/calculator/calc.jpg",
-//     url: "/calculator/calc.html",
-//   },
-//   {
-//     name: "Stopwatch",
-//     slug: "stopwatch",
-//     image: "/stopwatch/stopwatch.jpg",
-//     url: "/stopwatch/stopwatch.html",
-//   },
-//   {
-//     name: "Music Player",
-//     slug: "music",
-//     image: "/musically/music.png",
-//     url: "/musically/music.html",
-//   },
-//   {
-//     name: "Foodie Magic",
-//     slug: "foodie",
-//     image: "/assets/logo.jpeg",
-//     url: "https://foodiemagicres.netlify.app",
-//   },
-//   {
-//     name: "FlipMart",
-//     slug: "flipmart",
-//     image: "/assets/flipmart.jpg",
-//     url: "https://jayanths-flipmart-shop.netlify.app",
-//   },
-// ];
-
-// export default function Projects() {
-//   const { slug } = useParams();
-//   const selectedProject = projects.find(p => p.slug === slug);
-
-//   /* ================= PROJECT VIEW ================= */
-//   if (slug && selectedProject) {
-//     return (
-//       <section className="h-screen bg-black">
-//         <div className="h-16 px-4 flex items-center gap-4 bg-gray-900">
-//           <Link
-//             to="/"
-//             className="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-400"
-//           >
-//             ← Back
-//           </Link>
-//           <h2 className="text-xl font-bold text-teal-400">
-//             {selectedProject.name}
-//           </h2>
-//         </div>
-
-//         <iframe
-//           src={selectedProject.url}
-//           title={selectedProject.name}
-//           className="w-full h-[calc(100vh-4rem)] border-none"
-//         />
-//       </section>
-//     );
-//   }
-
-//   /* ================= PROJECT LIST ================= */
-//   return (
-//     <section id="projects" className="py-20 bg-gray-900">
-//       <h2 className="text-3xl font-bold text-center mb-10 text-teal-400">
-//         Projects
-//       </h2>
-
-//       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
-//         {projects.map(project => (
-//           <Link
-//             key={project.slug}
-//             to={`/project/${project.slug}`}
-//             className="group relative rounded-xl overflow-hidden bg-gray-800 shadow-lg"
-//           >
-//             <div
-//               className="h-52 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-//               style={{ backgroundImage: `url(${project.image})` }}
-//             />
-
-//             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-//               <span className="text-lg font-bold text-teal-400">
-//                 View Project
-//               </span>
-//             </div>
-
-//             <div className="p-4 text-center">
-//               <h3 className="text-xl font-bold text-white">
-//                 {project.name}
-//               </h3>
-//             </div>
-//           </Link>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
 const projects = [
   {
     name: "Clock",
     image: "/clock/clock.jpg",
     live: "/clock/clock.html",
     github: "https://github.com/JayanthPenta/Clock",
-    tech: [ "JavaScript","HTML", "CSS", "Netlify"],
+    tech: ["JavaScript", "HTML", "CSS", "Netlify"],
     description:
-      "A visually clean and responsive digital clock built with HTML, CSS, and JavaScript, updating time in real-time."
+      "A visually clean and responsive digital clock built with HTML, CSS, and JavaScript, updating time in real-time.",
   },
   {
     name: "Calculator",
     image: "/calculator/calc.jpg",
     live: "/calculator/calc.html",
     github: "https://github.com/JayanthPenta/Calculator",
-    tech: ["JavaScript","HTML", "CSS", "Netlify"],
+    tech: ["JavaScript", "HTML", "CSS", "Netlify"],
     description:
-      "A responsive calculator application built using HTML, CSS, and JavaScript that performs basic arithmetic operations with accurate and user-friendly interactions."
+      "A responsive calculator application built using HTML, CSS, and JavaScript that performs basic arithmetic operations with accurate and user-friendly interactions.",
   },
   {
     name: "Stopwatch",
     image: "/stopwatch/stopwatch.jpg",
     live: "/stopwatch/stopwatch.html",
     github: "https://github.com/JayanthPenta/Stopwatch",
-    tech: ["JavaScript","HTML", "CSS", "Netlify"],
+    tech: ["JavaScript", "HTML", "CSS", "Netlify"],
     description:
-     "A JavaScript-based stopwatch application with start, pause, reset, and lap functionality, designed with a clean and responsive user interface."  
-   },
-   {
+      "A JavaScript-based stopwatch application with start, pause, reset, and lap functionality, designed with a clean and responsive user interface.",
+  },
+  {
     name: "Musically",
     image: "/musically/music.png",
     live: "/musically/mjusic.html",
     github: "https://github.com/JayanthPenta/Musically",
-    tech: ["JavaScript","HTML", "CSS", "Netlify"],
+    tech: ["JavaScript", "HTML", "CSS", "Netlify"],
     description:
-      "A browser-based music player built using HTML, CSS, and JavaScript that allows users to play, pause, and navigate audio tracks with an intuitive UI."
+      "A browser-based music player built using HTML, CSS, and JavaScript that allows users to play, pause, and navigate audio tracks with an intuitive UI.",
   },
   {
     name: "Foodie Magic",
@@ -161,25 +52,30 @@ const projects = [
     tech: ["React", "JavaScript", "CSS", "Netlify", "TailwindCSS"],
     description:
       "A responsive e-commerce frontend with dynamic product listings and clean UI interactions.",
-  }
+  },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gray-900 px-6">
-      <h2 className="text-3xl font-bold text-center text-teal-400 mb-12">
+    <section
+      id="projects"
+      data-aos="fade-up"
+      className="py-20 px-6 bg-gray-100 dark:bg-gray-900 transition-colors duration-300"
+    >
+      <h2 className="text-3xl font-bold text-center mb-12 text-teal-600 dark:text-teal-400">
         Projects
       </h2>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-        {projects.map(project => (
+        {projects.map((project, i) => (
           <div
             key={project.name}
+            data-aos="fade-up"
+            data-aos-delay={i * 100}
             className="
-              bg-gray-800
-              rounded-2xl
-              overflow-hidden
-              shadow-lg
+              rounded-2xl overflow-hidden
+              bg-white dark:bg-gray-800
+              shadow-lg dark:shadow-black/40
               transition-all duration-300
               hover:-translate-y-[2px]
               hover:shadow-teal-500/30
@@ -192,22 +88,24 @@ export default function Projects() {
             />
 
             <div className="p-6">
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                 {project.name}
               </h3>
 
-              <p className="text-gray-400 mt-3">
+              <p className="mt-3 text-gray-600 dark:text-gray-400">
                 {project.description}
               </p>
 
-              {/* Tech Stack Badges */}
+              {/* Tech Stack */}
               <div className="flex flex-wrap gap-2 mt-4">
-                {project.tech.map(t => (
+                {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 text-sm
-                    bg-teal-500/20 text-teal-400
-                    rounded-full"
+                    className="
+                      px-3 py-1 text-sm rounded-full
+                      bg-teal-500/20 text-teal-600
+                      dark:text-teal-400
+                    "
                   >
                     {t}
                   </span>
@@ -220,9 +118,8 @@ export default function Projects() {
                   href={project.live}
                   target="_blank"
                   className="
-                    px-4 py-2
+                    px-4 py-2 rounded-lg
                     bg-teal-500 text-black
-                    rounded-lg
                     hover:bg-teal-400
                     transition
                   "
@@ -234,10 +131,9 @@ export default function Projects() {
                   href={project.github}
                   target="_blank"
                   className="
-                    px-4 py-2
+                    px-4 py-2 rounded-lg
                     border border-teal-500
-                    text-teal-400
-                    rounded-lg
+                    text-teal-600 dark:text-teal-400
                     hover:bg-teal-500 hover:text-black
                     transition
                   "

@@ -1,12 +1,14 @@
 export default function Experience() {
   return (
     <section
+    data-aos="fade-up"
       id="experience"
       className="py-28 bg-gray-100 dark:bg-gray-900 px-6"
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-center text-teal-500 mb-20">
+      <h2 className="text-3xl md:text-5xl font-bold text-center text-teal-500 mb-20">
         Experience
       </h2>
+      
 
       <div className="max-w-5xl mx-auto relative">
         {/* Vertical Line */}

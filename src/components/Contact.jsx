@@ -14,32 +14,60 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setStatus("Sending...");
 
-    try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+  //   try {
+  //     const res = await fetch("http://localhost:5000/api/contact", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     const data = await res.json();
+
+  //     if (res.ok) {
+  //       setStatus("Message sent successfully ✅");
+  //       setFormData({ name: "", email: "", message: "" });
+  //     } else {
+  //       setStatus(data.error || "Something went wrong ❌");
+  //     }
+  //   } catch (error) {
+  //     setStatus("Server error ❌");
+  //   }
+  // };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("Sending...");
+
+  try {
+    const res = await fetch(
+      "/api/contact", // 🔥 CHANGE THIS
+      {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setStatus("Message sent successfully ✅");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus(data.error || "Something went wrong ❌");
       }
-    } catch (error) {
-      setStatus("Server error ❌");
+    );
+
+    const data = await res.json();
+
+    if (res.ok) {
+      setStatus("Message sent successfully ✅");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      setStatus(data.error || "Something went wrong ❌");
     }
-  };
+  } catch (error) {
+    console.error(error);
+    setStatus("Server error ❌");
+  }
+};
 
   return (
     <section
+    data-aos="fade-up"
       id="contact"
       className="py-20 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white"
     >
