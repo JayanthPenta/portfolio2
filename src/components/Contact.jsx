@@ -19,7 +19,7 @@ export default function Contact() {
     setStatus("Sending...");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://portfolio2-7i3g.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
