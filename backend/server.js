@@ -2,26 +2,21 @@ import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-/* ---------- MIDDLEWARE ---------- */
+app.use(cors());
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "*", // frontend & backend are same deploy
-  })
-);
+// Test route
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
-/* ---------- API ROUTE ---------- */
+// Contact route
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -41,33 +36,23 @@ app.post("/api/contact", async (req, res) => {
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
-      replyTo: email,
       subject: `New message from ${name}`,
       html: `
-        <div style="font-family:Arial;padding:20px">
-          <h2 style="color:#14b8a6">📩 New Portfolio Message</h2>
-          <p><b>Name:</b> ${name}</p>
-          <p><b>Email:</b> ${email}</p>
-          <p><b>Message:</b></p>
-          <p>${message}</p>
-        </div>
+        <h2>New Portfolio Message</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Message:</b></p>
+        <p>${message}</p>
       `,
     });
 
-    res.status(200).json({ message: "Message sent successfully" });
-  } catch (err) {
-    console.error(err);
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Email failed to send" });
   }
 });
 
-/* ---------- SERVE FRONTEND ---------- */
-app.use(express.static(path.join(__dirname, "../dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
+app.listen(PORT, () => {
+  console.log(`🚀 Backend running on http://localhost:${PORT}`);
 });
-
-/* ---------- SERVER ---------- */
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on ${PORT}`));

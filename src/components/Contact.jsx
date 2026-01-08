@@ -14,60 +14,35 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setStatus("Sending...");
-
-  //   try {
-  //     const res = await fetch("http://localhost:5000/api/contact", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     const data = await res.json();
-
-  //     if (res.ok) {
-  //       setStatus("Message sent successfully ✅");
-  //       setFormData({ name: "", email: "", message: "" });
-  //     } else {
-  //       setStatus(data.error || "Something went wrong ❌");
-  //     }
-  //   } catch (error) {
-  //     setStatus("Server error ❌");
-  //   }
-  // };
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("Sending...");
+    e.preventDefault();
+    setStatus("Sending...");
 
-  try {
-    const res = await fetch(
-      "/api/contact", // 🔥 CHANGE THIS
-      {
+    try {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus(data.error || "Something went wrong ❌");
+        return;
       }
-    );
 
-    const data = await res.json();
-
-    if (res.ok) {
       setStatus("Message sent successfully ✅");
       setFormData({ name: "", email: "", message: "" });
-    } else {
-      setStatus(data.error || "Something went wrong ❌");
+    } catch (err) {
+      console.error("FETCH ERROR:", err);
+      setStatus("Server error ❌");
     }
-  } catch (error) {
-    console.error(error);
-    setStatus("Server error ❌");
-  }
-};
+  };
 
   return (
     <section
-    data-aos="fade-up"
+      data-aos="fade-up"
       id="contact"
       className="py-20 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white"
     >
@@ -90,6 +65,7 @@ export default function Contact() {
             <a
               href="https://github.com/JayanthPenta"
               target="_blank"
+              rel="noreferrer"
               className="font-bold"
             >
               GitHub
@@ -101,6 +77,7 @@ export default function Contact() {
             <a
               href="https://www.linkedin.com/in/jayanth-penta-a69118249"
               target="_blank"
+              rel="noreferrer"
               className="font-bold"
             >
               LinkedIn
@@ -141,9 +118,12 @@ export default function Contact() {
             className="w-full p-3 rounded bg-gray-800 text-white"
           />
 
-          <button className="w-full bg-teal-500 py-3 rounded text-black font-bold hover:bg-transparent
-    hover:text-teal-400
-    hover:shadow-[0_4px_16px_rgba(20,184,166,0.4)]">
+          <button
+            type="submit"
+            className="w-full bg-teal-500 py-3 rounded text-black font-bold
+              hover:bg-transparent hover:text-teal-400
+              hover:shadow-[0_4px_16px_rgba(20,184,166,0.4)]"
+          >
             Send Message
           </button>
 
