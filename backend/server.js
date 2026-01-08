@@ -6,22 +6,22 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 10000;
 
+// middleware
 app.use(cors());
 app.use(express.json());
 
-// Test route
+// test route
 app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
+  res.send("Backend is running successfully 🚀");
 });
 
-// Contact route
-app.post("/api/contact", async (req, res) => {
+// contact route
+app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ error: "All fields are required" });
+    return res.status(400).json({ message: "All fields are required" });
   }
 
   try {
@@ -37,22 +37,24 @@ app.post("/api/contact", async (req, res) => {
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       subject: `New message from ${name}`,
-      html: `
-        <h2>New Portfolio Message</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Message:</b></p>
-        <p>${message}</p>
+      text: `
+Name: ${name}
+Email: ${email}
+
+Message:
+${message}
       `,
     });
 
-    res.status(200).json({ success: true });
+    res.status(200).json({ message: "Message sent successfully" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Email failed to send" });
+    console.error("EMAIL ERROR:", error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
+// IMPORTANT: Render needs this
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
-  console.log(`🚀 Backend running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
