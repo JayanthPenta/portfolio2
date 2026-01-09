@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-// middleware
+// middleware (VERY IMPORTANT)
 app.use(cors());
 app.use(express.json());
 
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.send("Backend is running successfully 🚀");
 });
 
-// contact route
+// CONTACT ROUTE (THIS IS THE IMPORTANT PART)
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -46,14 +46,18 @@ ${message}
       `,
     });
 
+    // 🔴🔴🔴 THIS IS THE LINE YOU WERE ASKING ABOUT 🔴🔴🔴
     res.status(200).json({ message: "Message sent successfully" });
+
   } catch (error) {
     console.error("EMAIL ERROR:", error);
+
+    // backend MUST respond even on error
     res.status(500).json({ message: "Server error" });
   }
 });
 
-// IMPORTANT: Render needs this
+// Render port (DO NOT CHANGE)
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
